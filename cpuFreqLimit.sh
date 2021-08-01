@@ -15,7 +15,7 @@ cpuLimit=3600000
 # root 權限是必須的
 # root privilege is necessary
 if [ `whoami` != root ]; then
-    echo Please run this script as root or using sudo
+    echo Please run this script as root or use sudo
     exit
 fi
 
