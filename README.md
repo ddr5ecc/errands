@@ -3,6 +3,9 @@
 
 &emsp; Set a limit for Intel 10th gen cpus. 
 
+
+
+
 ###### backupiPhoneLivePhotos.sh
   &emsp; 備份iPhone原況照片至硬碟，並將檔案名稱改為時間戳
   
