@@ -21,20 +21,19 @@ fi
 
 # 確定系統有此功能
 # make sure the system is compatible
-if [ ! -f /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq ] 
+i=1
+keyFile=/sys/devices/system/cpu/cpufreq/policy`expr $i - 1`/scaling_max_freq
+if [ ! -f $keyFile ] 
 then
 	echo /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq is missing, this script would not work! 
 	exit
 fi
 
 
-i=1
-j=0
 while [ $i -le $thread ]
 do
-	sudo echo $cpuLimit | sudo tee /sys/devices/system/cpu/cpufreq/policy$j/scaling_max_freq
+	sudo echo $cpuLimit | sudo tee $keyFile
 	i=`expr $i + 1`
-	j=`expr $j + 1`
 done
 
 
