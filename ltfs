@@ -1,0 +1,12 @@
+# 20251225 Compiling LTFS on Debian 13
+# Source: https://github.com/LinearTapeFileSystem/ltfs
+
+sudo apt -y install pkg-config icu-devtools pkg-config libfuse-dev autoconf automake libtool libxml2-dev uuid-dev libicu-dev libsnmp-dev
+autoreconf -fi
+
+sed -i 's/icu >= 0.21/icu-uc >= 0.21/' configure.ac
+autoreconf -fi
+
+./configure --disable-dependency-tracking
+make
+sudo ldconfig -v
